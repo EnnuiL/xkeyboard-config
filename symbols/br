@@ -347,6 +347,231 @@ xkb_symbols "nativo-epo" {
     key <AB06> { [  gcircumflex,     Gcircumflex,                    q,                Q ] };
 };
 
+
+// TODO: Be Professional™ on the comments once there is any chance (and time) for these to become real layouts (a.k.a. PRable)
+
+// A port of macOS's "Brasileiro" layout.
+// (yes it's just the english one but with dead keys for the grave/tilde key)
+// (it isn't like the Linux one though because they have diverging changes for some reason)
+partial alphanumeric_keys
+xkb_symbols "mac" {
+
+    name[Group1]="English (Brazil, Macintosh)";
+
+    key.type[group1]="FOUR_LEVEL";
+
+    key <TLDE> { [ dead_grave, dead_tilde, dead_grave, dead_grave ] };
+    key <AE01> { [ 1, exclam, exclamdown, U2044 ] };
+    key <AE02> { [ 2, at, trademark, EuroSign ] };
+    key <AE03> { [ 3, numbersign, sterling, U2039 ] };
+    key <AE04> { [ 4, dollar, cent, U203A ] };
+    key <AE05> { [ 5, percent, infinity, UFB01 ] };
+    key <AE06> { [ 6, dead_circumflex, section, UFB02 ] };
+    key <AE07> { [ 7, ampersand, paragraph, doubledagger ] };
+    key <AE08> { [ 8, asterisk, enfilledcircbullet, degree ] };
+    key <AE09> { [ 9, parenleft, ordfeminine, periodcentered ] };
+    key <AE10> { [ 0, parenright, ordmasculine, singlelowquotemark ] };
+    key <AE11> { [ minus, underscore, endash, emdash ] };
+    key <AE12> { [ equal, plus, notequal, plusminus ] };
+
+    key <AD01> { [ q, Q, oe, OE] };
+    key <AD02> { [ w, W, U2211, doublelowquotemark ] };
+    key <AD03> { [ e, E, dead_acute, dead_acute ] };
+    // The permille character isn't being recognized?? how
+    // i think i found a xkb bug
+    key <AD04> { [ r, R, registered, permille ] };
+    key <AD05> { [ t, T, dagger, caron ] };
+    key <AD06> { [ y, Y, yen, Aacute ] };
+    key <AD07> { [ u, U, dead_diaeresis, dead_diaeresis ] };
+    key <AD08> { [ i, I, dead_circumflex, dead_circumflex ] };
+    key <AD09> { [ o, O, oslash, Oslash ] };
+    key <AD10> { [ p, P, Greek_pi, U220F ] };
+    key <AD11> { [ bracketleft, braceleft, leftdoublequotemark, rightdoublequotemark ] };
+    key <AD12> { [ bracketright, braceright, leftsinglequotemark, rightsinglequotemark ] };
+    key <BKSL> { [ backslash, bar, guillemetleft, guillemetright ] };
+
+    key <AC01> { [ a, A, aring, Aring ] };
+    key <AC02> { [ s, S, ssharp, Iacute ] };
+    key <AC03> { [ d, D, partialderivative, Icircumflex ] };
+    key <AC04> { [ f, F, function, Idiaeresis ] };
+    key <AC05> { [ g, G, copyright, doubleacute ] };
+    key <AC06> { [ h, H, abovedot, Oacute ] };
+    key <AC07> { [ j, J, U2206, Ocircumflex ] };
+    key <AC08> { [ k, K, U02DA, UF8FF ] };
+    key <AC09> { [ l, L, notsign, Ograve ] };
+    key <AC10> { [ semicolon, colon, ellipsis, Uacute ] };
+    key <AC11> { [ apostrophe, quotedbl, ae, AE ] };
+
+    key <AB01> { [ z, Z, Greek_OMEGA, cedilla ] };
+    key <AB02> { [ x, X, approxeq, ogonek ] };
+    key <AB03> { [ c, C, ccedilla, Ccedilla ] };
+    key <AB04> { [ v, V, radical, U25CA ] };
+    key <AB05> { [ b, B, integral, idotless ] };
+    key <AB06> { [ n, N, dead_tilde, dead_tilde ] };
+    key <AB07> { [ m, M, mu, Acircumflex ] };
+    key <AB08> { [ comma, less, lessthanequal, macron ] };
+    key <AB09> { [ period, greater, greaterthanequal, breve ] };
+    key <AB10> { [ slash, question, division, questiondown ] };
+
+    include "level3(ralt_switch)"
+};
+
+
+// A port of macOS's "Brasileiro (ABNT2)" layout.
+// It has the Cruzeiro sign here! ₢₢₢!
+partial alphanumeric_keys
+xkb_symbols "mac-abnt2" {
+
+    name[Group1]="Portuguese (Brazil, Macintosh)";
+
+    key.type[group1]="FOUR_LEVEL";
+
+    key <TLDE> { [ apostrophe, quotedbl, dead_grave, rightsinglequotemark ] };
+    key <AE01> { [ 1, exclam, onesuperior, exclamdown ] };
+    key <AE02> { [ 2, at, twosuperior, onehalf ] };
+    key <AE03> { [ 3, numbersign, threesuperior, threequarters ] };
+    key <AE04> { [ 4, dollar, sterling, onequarter ] };
+    key <AE05> { [ 5, percent, cent, threeeighths ] };
+    key <AE06> { [ 6, dead_diaeresis, notsign, dead_diaeresis ] };
+    key <AE07> { [ 7, ampersand, paragraph, seveneighths ] };
+    key <AE08> { [ 8, asterisk, enfilledcircbullet, multiply ] };
+    key <AE09> { [ 9, parenleft, U2211, periodcentered ] };
+    // º (ordmasculine) shares a key with ˚ (degree)???
+    // oh no this is a brazilian's worst nightmare (at least when we notice it :p)
+    // I don't want to diverge from the macOS layout though in order to fix it, that's the adapted layout's job
+    key <AE10> { [ 0, parenright, ordmasculine, degree ] };
+    key <AE11> { [ minus, underscore, endash, emdash ] };
+    key <AE12> { [ equal, plus, section, plusminus ] };
+
+    key <AD01> { [ q, Q, slash, backslash] };
+    key <AD02> { [ w, W, question, questiondown ] };
+    key <AD03> { [ e, E, EuroSign, EuroSign ] };
+    key <AD04> { [ r, R, registered, registered ] };
+    key <AD05> { [ t, T, tslash, Tslash ] };
+    key <AD06> { [ y, Y, leftarrow, yen ] };
+    key <AD07> { [ u, U, downarrow, uparrow ] };
+    key <AD08> { [ i, I, rightarrow, idotless ] };
+    key <AD09> { [ o, O, oslash, Oslash ] };
+    key <AD10> { [ p, P, thorn, THORN ] };
+    key <AD11> { [ dead_acute, dead_grave, dead_acute, dead_grave ] };
+    key <AD12> { [ bracketleft, braceleft, ordfeminine, ordfeminine ] };
+    key <BKSL> { [ bracketright, braceright, ordmasculine, ordmasculine ] };
+
+    key <AC01> { [ a, A, ae, AE ] };
+    key <AC02> { [ s, S, ssharp, section ] };
+    key <AC03> { [ d, D, eth, ETH ] };
+    key <AC04> { [ f, F, dstroke, U25CA ] };
+    key <AC05> { [ g, G, U2206, doubleacute ] };
+    key <AC06> { [ h, H, hstroke, Hstroke ] };
+    key <AC07> { [ j, J, U029D, ampersand ] };
+    key <AC08> { [ k, K, kra, UF8FF ] };
+    key <AC09> { [ l, L, lstroke, Lstroke ] };
+    key <AC10> { [ ccedilla, Ccedilla, periodcentered, odoubleacute ] };
+    // On macOS, typing ~ and ^ twice curiously converts them into ' and " respectively
+    // This behavior hasn't been replicated here.
+    // There is also some weird behavior with ~/^ becoming a lifted standalone version of some sort,
+    // I have to investigate that
+    key <AC11> { [ dead_tilde, dead_circumflex, dead_tilde, dead_circumflex ] };
+
+    key <AB01> { [ z, Z, Greek_OMEGA, less ] };
+    key <AB02> { [ x, X, approxeq, greater ] };
+    key <AB03> { [ c, C, CruzeiroSign, copyright ] };
+    key <AB04> { [ v, V, U028B, U01B2 ] };
+    key <AB05> { [ b, B, integral, trademark ] };
+    key <AB06> { [ n, N, eng, ENG ] };
+    key <AB07> { [ m, M, mu, mu ] };
+    key <AB08> { [ comma, less, lessthanequal, guillemetleft ] };
+    key <AB09> { [ period, greater, greaterthanequal, guillemetright ] };
+    key <AB10> { [ semicolon, colon, ellipsis, ellipsis ] };
+
+    include "level3(ralt_switch)"
+};
+
+
+// An adapted version of the Mac ABNT2 layout that makes the keyboard labels more trustable,
+// you just have to mentally swap the quotes key with the tilde/circumflex one!
+// (wait the acute/grave accent key isn't that obvious isn't it)
+//
+// TODO - Battle-test this and see how well this layout works on practice, it needs time in the oven
+// (also figure out a better name than "US Macintosh")
+partial alphanumeric_keys
+xkb_symbols "mac-enny" {
+
+    name[Group1]="Portuguese (Brazil, US Macintosh)";
+
+    key.type[group1]="FOUR_LEVEL";
+
+    key <TLDE> { [ apostrophe, quotedbl, dead_grave, rightsinglequotemark ] };
+    key <AE01> { [ 1, exclam, onesuperior, exclamdown ] };
+    key <AE02> { [ 2, at, twosuperior, onehalf ] };
+    key <AE03> { [ 3, numbersign, threesuperior, threequarters ] };
+    key <AE04> { [ 4, dollar, sterling, onequarter ] };
+    key <AE05> { [ 5, percent, cent, threeeighths ] };
+    // I'm still not 100% sure of this change, I might be biased against the trema, but maybe having
+    // the circumflex on the first level in order to match the label would be better
+    key <AE06> { [ 6, dead_circumflex, dead_diaeresis, notsign ] };
+    key <AE07> { [ 7, ampersand, paragraph, seveneighths ] };
+    key <AE08> { [ 8, asterisk, enfilledcircbullet, multiply ] };
+    key <AE09> { [ 9, parenleft, U2211, periodcentered ] };
+    // The mistake of having º and ˚ in the same key has been rectified
+    key <AE10> { [ 0, parenright, degree, degree ] };
+    key <AE11> { [ minus, underscore, endash, emdash ] };
+    key <AE12> { [ equal, plus, section, plusminus ] };
+
+    // We can technically get rid of the equivalents to AltGr + QWE, but we shouldn't
+    key <AD01> { [ q, Q, slash, backslash] };
+    key <AD02> { [ w, W, question, questiondown ] };
+    // The US Mac's ´ has been placed here since the new position of the acute/grave accent key
+    // isn't as clear as the rest, so why not have a nice little training wheel?
+    key <AD03> { [ e, E, dead_acute, EuroSign ] };
+    // It makes sense for the copyright symbol to be in the same key as the registered one,
+    // even though it technically isn't a character that fits in a R key.
+    // I couldn't find a way to relocate ₢ though :(
+    key <AD04> { [ r, R, registered, copyright ] };
+    key <AD05> { [ t, T, tslash, Tslash ] };
+    key <AD06> { [ y, Y, leftarrow, yen ] };
+    key <AD07> { [ u, U, downarrow, uparrow ] };
+    key <AD08> { [ i, I, rightarrow, idotless ] };
+    key <AD09> { [ o, O, oslash, Oslash ] };
+    key <AD10> { [ p, P, thorn, THORN ] };
+    key <AD11> { [ bracketleft, braceleft, ordfeminine, ordfeminine ] };
+    key <AD12> { [ bracketright, braceright, ordmasculine, ordmasculine ] };
+    // (the guillemets are a delicious candidate to be replaced by a to-be-invented neutral ordinal :p)
+    key <BKSL> { [ backslash, bar, guillemetleft, guillemetright ] };
+
+    key <AC01> { [ a, A, ae, AE ] };
+    key <AC02> { [ s, S, ssharp, section ] };
+    key <AC03> { [ d, D, eth, ETH ] };
+    key <AC04> { [ f, F, dstroke, U25CA ] };
+    key <AC05> { [ g, G, U2206, doubleacute ] };
+    key <AC06> { [ h, H, hstroke, Hstroke ] };
+    key <AC07> { [ j, J, U029D, ampersand ] };
+    key <AC08> { [ k, K, kra, UF8FF ] };
+    key <AC09> { [ l, L, lstroke, Lstroke ] };
+    // The semicolon/colon key is back to its position
+    key <AC10> { [ semicolon, colon, ellipsis, odoubleacute ] };
+    // The acute/grave key is available here as a option subkey of some sort
+    key <AC11> { [ dead_tilde, dead_circumflex, dead_acute, dead_grave ] };
+
+    key <AB01> { [ z, Z, Greek_OMEGA, less ] };
+    key <AB02> { [ x, X, approxeq, greater ] };
+    // I actually love how Option + C = Ç! It's a really nice way to avoid the extra key while
+    // taking advantage of what is pretty much a powered up AltGr! I still like the Ç key though :p
+    // (I do wish the left Option key worked the same as the right one like in macOS)
+    key <AB03> { [ c, C, ccedilla, Ccedilla ] };
+    key <AB04> { [ v, V, U028B, U01B2 ] };
+    key <AB05> { [ b, B, integral, trademark ] };
+    key <AB06> { [ n, N, eng, ENG ] };
+    key <AB07> { [ m, M, mu, mu ] };
+    key <AB08> { [ comma, less, lessthanequal, guillemetleft ] };
+    key <AB09> { [ period, greater, greaterthanequal, guillemetright ] };
+    // The slash/question mark key is also back to its usual place!
+    key <AB10> { [ slash, question, division, questiondown ] };
+
+    include "level3(ralt_switch)"
+};
+
+
 // EXTRAS:
 
 partial alphanumeric_keys
